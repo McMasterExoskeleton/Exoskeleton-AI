@@ -1,5 +1,6 @@
 # Exoskeleton-AI
 Main repo for Exoskeleton-AI. The goal is to train a real-time gait prediction model for use in the feedback loop
+test-pr
 
 ## Prerequisite Setup
 For the following commands to work we assume you have these downloaded on your system:
