@@ -1,17 +1,20 @@
 # Required Libraries: 
-'''
-pip install boto3 
-pip install python-dotenv
-'''
+
+> pip install boto3 
+
+> pip install python-dotenv
 
 # Getting Access to S3: 
 After having a local version of the repo, in the Exoskeleton-AI create a .env file and config it like the following: 
-'''
-AWS_ACCESS_KEY_ID= 
-AWS_SECRET_ACCESS_KEY= 
-AWS_BUCKET_NAME= mcmaster-exoskeleton-ai-data 
-AWS_BUCKET_REGION= us-east-2
-'''
+
+>AWS_ACCESS_KEY_ID=  
+
+>AWS_SECRET_ACCESS_KEY= 
+
+>AWS_BUCKET_NAME= mcmaster-exoskeleton-ai-data 
+
+>AWS_BUCKET_REGION= us-east-2
+
 and get the aws_access_key_id and aws_secret_access_key privately ( aws_bucket_name might be subjected to change) 
 
 
@@ -46,14 +49,14 @@ the folder is called ***data***, the path must be relative to current directory 
 
 ### Examples: 
 ***Download***
-'''
-python3 s3_script.py --action DOWNLOAD --version 1.0 --function WALK --path ../../data/1.0/walk.csv 
-'''
+
+>python3 s3_script.py --action DOWNLOAD --version 1.0 --function WALK --path ../../data/1.0/walk.csv 
+
 
 make sure that the walk.csv file does exsist in the s3 bucket, if unsure which files exsist use the viewing s3 bucket script 
 
 ***Upload*** 
-'''
-python3 s3_script.py --action UPLOAD --version 2.0 --function RUN --path ../../data/2.0/run_v2.csv 
-'''
+
+>python3 s3_script.py --action UPLOAD --version 2.0 --function RUN --path ../../data/2.0/run_v2.csv 
+
 will upload it into s3 as 2.0 / RUN / run_v2.csv 
