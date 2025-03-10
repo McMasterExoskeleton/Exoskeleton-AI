@@ -28,19 +28,25 @@ def main():
                 sensor_data[loc]['timestamp'].append(timestamp)
                 sensor_data[loc]['roll'].append(sensor['euler']['roll'])
 
-    # You can adjust this order or remove sensors if needed
+    # Adjust this order if needed
     sensor_order = [
         "Left Knee", "Left Ankle", 
         "Right Ankle", "Right Hip", 
         "Right Knee", "Left Hip"
     ]
 
-    # Plot all sensors' roll data on a single plot
-    plt.figure(figsize=(10, 6))
-    for loc in sensor_order:
-        plt.plot(sensor_data[loc]['timestamp'], sensor_data[loc]['roll'], label=loc)
+    # Subsampling factor: plot every 10th point, for example
+    subsample_factor = 10
 
-    plt.title("Roll Data Over Time for Each Sensor")
+    plt.figure(figsize=(20, 6))
+
+    for loc in sensor_order:
+        # Take every 10th point
+        timestamps = sensor_data[loc]['timestamp'][::subsample_factor]
+        rolls = sensor_data[loc]['roll'][::subsample_factor]
+        plt.plot(timestamps, rolls, label=loc)
+
+    plt.title("Roll Data Over Time (Subsampled)")
     plt.xlabel("Time")
     plt.ylabel("Roll (degrees)")
     plt.legend()
@@ -50,4 +56,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
